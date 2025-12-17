@@ -14,7 +14,8 @@ image:
   tag: api-gateway-cdc5bfeb04ca6dafeb5823c5dd72c605c1d558b7
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
-imagePullSecrets: []
+imagePullSecrets: 
+  - name: regcred
 # This is to override the chart name.
 nameOverride: ""
 fullnameOverride: ""
@@ -29,7 +30,7 @@ serviceAccount:
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template.
-  name: user-service
+  name: api-gateway
 
 # This is for setting Kubernetes Annotations to a Pod.
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
