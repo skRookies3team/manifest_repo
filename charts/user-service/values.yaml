@@ -16,6 +16,16 @@ image:
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: 
   - name: regcred
+
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: prod
+
+envFrom:
+  - secretRef:
+      name: user-service-secret
+  - configMapRef:
+      name: user-service-config
    
 # This is to override the chart name.
 nameOverride: ""
