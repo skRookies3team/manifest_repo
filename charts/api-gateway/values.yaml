@@ -78,7 +78,7 @@ ingress:
     alb.ingress.kubernetes.io/target-type: ip
 
      # ALB 헬스체크
-    alb.ingress.kubernetes.io/healthcheck-path: /actuator/health
+    alb.ingress.kubernetes.io/healthcheck-path: /api/actuator/health
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
     alb.ingress.kubernetes.io/success-codes: "200"
 
