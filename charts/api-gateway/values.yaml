@@ -82,14 +82,19 @@ ingress:
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
     alb.ingress.kubernetes.io/success-codes: "200"
 
+    alb.ingress.kubernetes.io/rewrite-target: /$2
+
     # SG 자동 처리 
     alb.ingress.kubernetes.io/manage-backend-security-group-rules: "true"
   hosts:
     - host: ""
       paths:
-        - path: /api
+        # api → 내부에서는 프리픽스 제거
+        - path: /api(/|$)(.*)
           pathType: Prefix
-        - path: /actuator
+
+        # actuator 직접 접근도 허용
+        - path: /actuator(/|$)(.*)
           pathType: Prefix
   tls: []
     # - secretName: chart-example-tls
