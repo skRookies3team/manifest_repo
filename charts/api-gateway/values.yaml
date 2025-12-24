@@ -89,12 +89,10 @@ ingress:
   hosts:
     - host: ""
       paths:
-        # api → 내부에서는 프리픽스 제거
-        - path: /api(/|$)(.*)
+        - path: /api
           pathType: Prefix
 
-        # actuator 직접 접근도 허용
-        - path: /actuator(/|$)(.*)
+        - path: /actuator
           pathType: Prefix
   tls: []
     # - secretName: chart-example-tls
