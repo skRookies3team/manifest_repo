@@ -11,7 +11,7 @@ image:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: petmate-service-0a0e5d4a391253c9d2d248a7377374db7f9e8bd5
+  tag: petmate-service-27b4c44e443ef0d8f5b3933dc89c30867b0d0fe2
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: 
