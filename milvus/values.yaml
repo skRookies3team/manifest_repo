@@ -1,0 +1,28 @@
+cluster:
+  enabled: false
+
+standalone:
+  enabled: true
+
+image:
+  all:
+    repository: milvusdb/milvus
+    tag: v2.3.0
+
+# ServiceAccount (IRSA 사용)
+serviceAccount:
+  create: false
+  name: milvus-sa
+
+# etcd (로컬 docker-compose와 동일)
+etcd:
+  enabled: true
+
+minio:
+  enabled: false
+
+# S3 (MinIO 대체)
+externalS3:
+  enabled: true
+  region: ap-northeast-2
+  bucketName: petlog-milvus-bucket
