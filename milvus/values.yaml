@@ -9,20 +9,41 @@ image:
     repository: milvusdb/milvus
     tag: v2.3.0
 
-# ServiceAccount (IRSA 사용)
 serviceAccount:
   create: false
   name: milvus-sa
 
-# etcd (로컬 docker-compose와 동일)
+# etcd 
 etcd:
   enabled: true
+  image:
+    repository: quay.io/coreos/etcd
+    tag: v3.5.0
 
+# MinIO(S3 사용)
 minio:
   enabled: false
 
-# S3 (MinIO 대체)
+# Kafka / Pulsar (외부 Kafka 사용)
+pulsar:
+  enabled: false
+
+kafka:
+  enabled: false
+
+mysql:
+  enabled: false
+
+# External S3 (MinIO 대체)
 externalS3:
   enabled: true
   region: ap-northeast-2
   bucketName: petlog-milvus-bucket
+
+# External Kafka 
+msgChannel:
+  type: kafka
+
+externalKafka:
+  enabled: true
+  brokerList: kafka.infra.svc.cluster.local:9092
