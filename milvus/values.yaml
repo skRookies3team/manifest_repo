@@ -4,6 +4,9 @@ cluster:
 standalone:
   enabled: true
 
+  profiling:
+    enabled: false
+
 image:
   all:
     repository: milvusdb/milvus
